@@ -283,22 +283,6 @@ unlink $filename;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ###### Below is left in case XXXX changes his mind again
 
 
@@ -437,18 +421,3 @@ unlink $filename;
 	
 # }
 # $workbook->close();
-
-
-# email({
-    XXXXXXX
-    # 'subject'      => "Overdue Open RMA Report",
-    # '_text'        => "This shows all open RMAs that were created more than 2 days ago. Please call any customers that were supposed to return products to us, closed any RMAs for defectives that aren't coming back to us, and track down any credits that are overdue.",
-    # '_attachments' => {
-        # "$filename" => {
-            # 'description' => "$filename",
-            # 'ctype'       => 'application/vnd.ms-excel',
-            # 'file'        => "$filename",
-        # },
-    # },
-# }) or die "email() failed: $@";
-# unlink $filename;
