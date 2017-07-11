@@ -1,5 +1,7 @@
 #!/usr/local/bin/perl  -w
 
+# Gets all seller ids that are listing our asins
+
 use strict;
 use DBI;
 use LWP::Simple;
@@ -57,19 +59,14 @@ my (
     $strSQL        # database SQL statement
 );
 
-# $::db_connect = $::db_connect; 
-# $::db_username = $::db_username; 
-# $::db_password = $::db_password; 
+$::db_connect = $::db_connect; 
+$::db_username = $::db_username; 
+$::db_password = $::db_password; 
 use WWW::Mechanize;
 my $mech = WWW::Mechanize->new( 'ssl_opts' => { 'verify_hostname' => 0,  'SSL_verify_mode' => 'SSL_VERIFY_CLIENT'}, 'onerror' => undef );
 $mech->agent_alias( 'Windows Mozilla' );
 XXXXXXXXXXX
 $mech->get('https://sellercentral.amazon.com/gp/homepage.html' );
-
-# $mech -> form_name('signIn');
-# $mech -> field ('email' => 'XXXXXXXX');
-# $mech -> field ('password' => 'XXXXXXXXX');
-# $mech -> click_button( value => 'Sign in using our secure server ' );
 
 $mech -> form_name('signIn');
 $mech -> field ('username' => 'XXXXXXX');
