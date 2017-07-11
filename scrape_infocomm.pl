@@ -1,4 +1,6 @@
-#!/usr/local/bin/perl 
+#!/usr/local/bin/perl
+
+# Get a list of vendors presenting at the infocomm tradeshow
 
 use strict;
 use DBI;
@@ -127,7 +129,7 @@ while ($pagecount < 574)
 {	
 
 	$url="http://www.infocommshow.org/networknow/public/nz_ALExhibitorList.aspx";
-    $html = get("$url");     
+        $html = get("$url");     
 	
 	$slurping = 0;
 	@pagelines = split /\n/, $html;   #separate each line of the page into @pagelines
@@ -145,7 +147,7 @@ while ($pagecount < 574)
 			 ($name, $html3) = (split /<span style="border:0; float: right; width: 200px; text-align: right;">/, $namejunk);
 			 $name =~ s/&amp;/&/;
 			 $name =~ s/^\s*(.*)?/$1/;  # kill leading spaces
-             $name =~ s/\s+$//;  # kill trailing spaces
+                         $name =~ s/\s+$//;  # kill trailing spaces
 			 			  
 			 $html=$stuff_i_want;
 			 ($html1, $locationjunk) = (split /<h3>/, $html);
@@ -155,80 +157,6 @@ while ($pagecount < 574)
 			 ($html1, $phonejunk) = (split /class="controlPhoneHide">/, $html);
 			 ($phone, $html3) = (split /<\/span>/, $phonejunk);	
 			 
-			 
-			 # ($city, $statezip) = (split /, /, $location);
-			 # ($state, $zip) = (split / /, $statezip);
-			 # $yellowcity=$city;
-			 # $yellowcity =~ s/ /+/;
-			 # $yellowname=$name;
-			 # $yellowname =~ s/ /+/;
-			 # $yellowname =~ s/&/%26/;
-			 
-			 
-			 
-			
-			 # $url2= "http://yellowpages.superpages.com/listings.jsp?CS=L&MCBP=true&C=$yellowname&STYPE=S&L=$yellowcity\%2C+$state+$zip&search.x=0&search.y=0&search=Find+It&search=Find+It";
-			 # $yellowhtml = get("$url2");
-			 
-			#print $yellowhtml;
-			 # $cityslurp=0;
-			 # $yellowslurping=0;
-			 # @yellowpagelines = (split /\n/, $yellowhtml);   #separate each line of the page into @yellowpagelines
-			# foreach $yellowpageline (@yellowpagelines)   # for every line in the page,
-			# {  
-			  # print $yellowpageline, "\n";
-			   
-			                         # if ($cityline =~ m/spAddress="/)
-									# {
-										# $cityslurp = 1;
-									# }
-									# elsif ($cityslurp =~ m/\+/)
-									# {
-									
-										# $cityslurp = 0;
-										# $cityline_i_want = "";
-									# }
-									# if ($cityslurp)
-									# {
-										# $cityline_i_want .= $officialcity;
-									# }
-									
-									
-									
-			   
-				# if ($yellowpageline =~ m/;lbp=1"'">/)
-				# { 
-				   # warn "slurping";
-				    # $yellowslurping = 1;
-				# }
-				# elsif ($yellowpageline =~ m/div addr 2/)
-				# {
-				   # warn "found end";
-					# $yellowslurping = 0;
-					
-                    				
-					# ($html6, $streetjunk) = (split /<div>/, $yellowstuff_i_want);
-					# warn $city;	
-					# ($street, $html7) = (split /<span id="/, $streetjunk);
-					# $street =~ s/,/ /;
-					# ($actualstreet, $crappola) = (split /$city/, $street);
-				    #print $actualstreet;
-					#$worksheet->write($row, 0, $yellowstuff_i_want);
-					# $row++;
-					# $row++;
-					
-					# $yellowstuff_i_want = "";  # important, or you'll keep adding companies each time.
-
-			    # }
-				# if ($yellowslurping)
-				# {
-					# $yellowstuff_i_want .= $yellowpageline, "\n";
-				# }
-			
-			    
-			    
-			# }
-					
 	        		$worksheet->write($row, 0, $name);
 					$row++;
 					$worksheet->write($row, 0, $location);
@@ -280,7 +208,7 @@ unlink $filename;
 
 
 
-
+## below may be needed depending on how deep we want to dig
 
 
 
