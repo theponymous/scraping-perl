@@ -1,4 +1,6 @@
-#!/usr/local/bin/perl 
+#!/usr/local/bin/perl
+
+# Gets a list of vendors from the home theater site for use as leads for sales team
 
 use strict;
 use DBI;
@@ -115,6 +117,7 @@ $headerformat = $workbook->add_format();
 $headerformat->set_bold();
 $headerformat->set_underline();
 
+# Left in here if we go back in time to old way
 # @rowdata = ("Company", "Location", "Phone Number");
        # $worksheet->write_row($row, 0, \@rowdata, $headerformat);
        # $row++;
@@ -145,7 +148,7 @@ while ($pagecount < 574)
 			 ($name, $html3) = (split /<span style="border:0; float: right; width: 200px; text-align: right;">/, $namejunk);
 			 $name =~ s/&amp;/&/;
 			 $name =~ s/^\s*(.*)?/$1/;  # kill leading spaces
-             $name =~ s/\s+$//;  # kill trailing spaces
+                         $name =~ s/\s+$//;  # kill trailing spaces
 			 			  
 			 $html=$stuff_i_want;
 			 ($html1, $locationjunk) = (split /<h3>/, $html);
@@ -154,8 +157,7 @@ while ($pagecount < 574)
 			 $html=$stuff_i_want;
 			 ($html1, $phonejunk) = (split /class="controlPhoneHide">/, $html);
 			 ($phone, $html3) = (split /<\/span>/, $phonejunk);	
-			 
-			 
+			############ HTML CHANGED> KEEP IN CASE WE NEED #######
 			 # ($city, $statezip) = (split /, /, $location);
 			 # ($state, $zip) = (split / /, $statezip);
 			 # $yellowcity=$city;
@@ -297,7 +299,7 @@ unlink $filename;
 
 
 
-
+###### Below is left in case XXXX changes his mind again
 
 
 	# $html = $topchunk;
